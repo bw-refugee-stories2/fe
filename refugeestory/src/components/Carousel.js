@@ -7,24 +7,25 @@ import {
   CarouselCaption
 } from 'reactstrap';
 
+
 const items = [
   {
     src: 'https://images.unsplash.com/photo-1526817575615-3685e135615d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1288&q=80',
     altText: 'Refugees on a Beach',
-    title: 'test',
-    caption: 'Global Warming Creates Rising Tides'
+    title: 'Global Warming Creates Rising Tides',
+    caption: 'A story of a father and his children looking for a new home due to global warming'
   },
   {
     src: 'https://images.unsplash.com/photo-1505155485412-30b3a45080ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1359&q=80',
     altText: 'Slide 2',
-    title: 'test',
-    caption: 'Slide 2'
+    title: 'Brother and Sisters Separated From their Parents',
+    caption: 'When war forced these siblins to flee their home little did they know this would begin a search for their family.'
   },
   {
     src: 'https://images.unsplash.com/photo-1530490125459-847a6d437825?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1363&q=80',
     altText: 'Slide 3',
-    title: 'test',
-    caption: 'Slide 3'
+    title: 'New Hope is Found!',
+    caption: 'A mother and her daughter start a new life with new promise!'
   }
 ];
 
