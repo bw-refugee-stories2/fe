@@ -1,12 +1,14 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Example from './components/Carousel'
+import HomeCarousel from './components/Carousel'
+import Login from './components/Login'
 
 function App() {
   return (
     <div className="App">
-      <Example />
+      <Login />
+      <HomeCarousel />
     </div>
   );
 }

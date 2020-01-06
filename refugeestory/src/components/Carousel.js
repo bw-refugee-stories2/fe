@@ -29,7 +29,7 @@ const items = [
   }
 ];
 
-const Example = (props) => {
+const HomeCarousel = (props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -77,4 +77,4 @@ const Example = (props) => {
   );
 }
 
-export default Example;
+export default HomeCarousel;
