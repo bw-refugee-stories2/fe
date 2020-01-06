@@ -10,17 +10,20 @@ import {
 const items = [
   {
     src: 'https://images.unsplash.com/photo-1526817575615-3685e135615d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1288&q=80',
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    altText: 'Refugees on a Beach',
+    title: 'test',
+    caption: 'Global Warming Creates Rising Tides'
   },
   {
     src: 'https://images.unsplash.com/photo-1505155485412-30b3a45080ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1359&q=80',
     altText: 'Slide 2',
+    title: 'test',
     caption: 'Slide 2'
   },
   {
     src: 'https://images.unsplash.com/photo-1530490125459-847a6d437825?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1363&q=80',
     altText: 'Slide 3',
+    title: 'test',
     caption: 'Slide 3'
   }
 ];
@@ -54,7 +57,7 @@ const Example = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        <CarouselCaption captionText={item.caption} captionHeader={item.title} />
       </CarouselItem>
     );
   });
