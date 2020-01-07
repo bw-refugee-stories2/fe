@@ -6,13 +6,14 @@ import HomeCarousel from './components/Carousel';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import StoriesReview from './components/StoriesReview';
-import Nav from './components/Nav';
+import NavBar from './components/Nav';
 import SubmitStory from './components/SubmitStory';
 import StoryCard from './components/StoryCard';
 import StoryReviewCard from './components/StoriesReviewCards';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 import Stories from "./components/Stories";
+import {StoriesContext} from './contexts/StoriesContext';
 
 
 export default function App() {
@@ -29,6 +30,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
+    const [data, setData] =useState([]);
+   useEffect(() => {
+    axios.get("https://bw-refugee-stories-2.herokuapp.com/api/stories")
+    .then(response => {
+        setData(response.data)
+        console.log(data);
+    })
+
+   }, [])
 
 
 // function App() {
@@ -41,8 +51,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // },[]);
 
   return (
+      <StoriesContext.Provider value={data}>
     <div className="App">
-      <Nav />
+      <NavBar />
       <Route exact path ="/"/>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={SignUp} />
@@ -51,7 +62,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
       <HomeCarousel />
       <Stories />
-     
+
     </div>
+    </StoriesContext.Provider>
   );
 }

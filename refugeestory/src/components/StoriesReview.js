@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { axiosWithAuth } from "../axiosWithAuth";
-
+import StoriesReviewCards from "./StoriesReviewCards";
+import {StoriesContext} from "../contexts/StoriesContext";
 const StoriesReview = (props) => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the protected route
+    const myData = useContext(StoriesContext).filter(element => (
+        element.approved === false
+    ));
 
 
   return (
-    <div className="container">
+    <section className="stories">
         <div className="box">
-          <h1> StoriesReview</h1>
+          <h1> Stories to Review</h1>
+          {myData.map(story => {
+            return <StoriesReviewCards props={story} />
+          })}
            </div>
-    </div>
+    </section>
   );
 };
 
