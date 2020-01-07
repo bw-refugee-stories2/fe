@@ -23,19 +23,20 @@ const Login = (props) => {
           ...credentials,
           [event.target.name]: event.target.value
     })
+    console.log(credentials);
   }
-
 
   return (
     <div className="container">
+    {console.log(props.history)}
         <SignUp />
         <div className="box">
           <h1> Login to continue</h1>
           <form onSubmit={login} >
             <input
-                label="email"
-                placeholder="email"
-                name="email"
+                label="username"
+                placeholder="username"
+                name="username"
                 type="text"
                 onChange={handleChange}
             />
