@@ -36,3 +36,35 @@
     transform: rotate(360deg);
   }
 }
+
+
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.container .box {
+
+    border-radius: 25px;
+    border: black solid 0.5px;
+    display: flex;
+    align-items: center;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin: 5%;
+    padding: 3%;
+}
+
+.container form {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 5%;
+    margin: 5%;
+}
+.container input {
+    margin-top:5%;
+    margin-bottom: 5%;
+
+}
