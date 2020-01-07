@@ -12,6 +12,9 @@ import StoryCard from './components/StoryCard';
 import StoryReviewCard from './components/PendingStoryCards';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
+import Stories from "./components/Stories";
+
+export default function App() {
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -46,10 +49,8 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
 
       <HomeCarousel />
-      <StoryReviewCard />
-      <StoryCard />
+      <Stories />
+     
     </div>
   );
-
-
-export default App;
+}

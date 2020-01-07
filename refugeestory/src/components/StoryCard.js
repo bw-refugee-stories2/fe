@@ -19,14 +19,14 @@ import axios from 'axios';
 
 
 
-function App() {
-  const [stories, setStories] = useState([]);
-  useEffect(()=>{
-    axios
-        .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
-        .then(response=>setStories(response.data))
-        .catch(error=>console.log(error));
-},[]);
+// function App() {
+//   const [stories, setStories] = useState([]);
+//   useEffect(()=>{
+//     axios
+//         .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
+//         .then(response=>setStories(response.data))
+//         .catch(error=>console.log(error));
+// },[]);
 
 
 
@@ -56,6 +56,7 @@ const useStyles = makeStyles(theme => ({
 
 
 export default function StoryCard(props) {
+  console.log(props)
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -76,8 +77,8 @@ export default function StoryCard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader={props.stories.quote}
+        title= {props.props.name}
+        subheader={props.props.quote}
       />
       <CardMedia
         className={classes.media}
