@@ -1,30 +1,25 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {
+  Collapse,
+  Nav,
+  Navbar,
+  NavbarBrand,
+  NavLink,
+  NavbarText
+} from 'reactstrap';
 
-const Nav= () => {
+const NavBar = () => {
   return (
-    <div>
-      <div className="App">
-        <h1>Refugee Stories</h1>
-        <div>
-          <Link to = "/">Home</Link>
-        </div>
-        <div>
-          <Link to = "/login">Admin Login</Link>
-        </div>
-        <div>
-          <Link to = "/signup">Admin Sign Up</Link>
-        </div>
-        <div>
-          <Link to = "/storiesreview">Stories to Review</Link>
-        </div>
-
-        <div>
-          <Link to = "/submitstory">Submit Your Story</Link>
-        </div>
-      </div>
-    </div>
+      <Navbar color="dark" dark expand="md">
+        <NavbarBrand href="/">Refugee Stories</NavbarBrand>
+        <NavLink className="navLink" href="/">Home</NavLink>
+        <NavLink className="navLink" href = "/login">Admin Login</NavLink>
+        <NavLink className="navLink" href = "/signup">Admin Sign Up</NavLink>
+        <NavLink className="navLink" href = "/storiesreview">Stories to Review</NavLink>
+        <NavLink className="navLink" href = "/submitstory">Submit Your Story</NavLink>
+      </Navbar>
   );
 };
 
-export default Nav;
+export default NavBar;

@@ -68,3 +68,18 @@
     margin-bottom: 5%;
 
 }
+nav .navbar-nav li a{
+  color: white !important;
+  }
+a:link{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: red;
+}
+
+.navLink {
+    color: white !important;
+}
