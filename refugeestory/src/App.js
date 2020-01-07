@@ -13,6 +13,7 @@ import StoryReviewCard from './components/StoriesReviewCards';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 import Stories from "./components/Stories";
+import {StoriesContext} from './contexts/StoriesContext';
 
 export default function App() {
 
@@ -28,6 +29,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
+    const [data, setData] =useState([]);
+   useEffect(() => {
+    axios.get("https://bw-refugee-stories-2.herokuapp.com/api/stories")
+    .then(response => {
+        setData(response.data)
+        console.log(data);
+    })
+
+   }, [])
 
 
 // function App() {
@@ -40,6 +50,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // },[]);
 
   return (
+      <StoriesContext.Provider value={data}>
     <div className="App">
       <NavBar />
       <Route exact path ="/"/>
@@ -52,5 +63,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       <Stories />
 
     </div>
+    </StoriesContext.Provider>
   );
 }
