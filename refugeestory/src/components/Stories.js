@@ -1,13 +1,6 @@
 import React, {useState, useContext, useEffect} from "react";
 import StoryCard from "./StoryCard";
 import styled from "styled-components";
-
-const Flex = styled.div`
-display:flex;
-justify-content:space-evenly;
-margin:2%;
-`
-
 import axios from "axios";
 import {StoriesContext} from "../contexts/StoriesContext";
 
@@ -26,11 +19,11 @@ export default function Stories(props) {
 
   return (
 
-    <Flex className="stories">
+    <section className="stories">
       {myData.map(story => {
         return <StoryCard props ={story} />;
       })}
-    </Flex>
+    </section>
   );
 }
 
