@@ -33,6 +33,7 @@ import axios from 'axios';
 const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
+    marginTop: 20,
   },
   media: {
     height: 0,

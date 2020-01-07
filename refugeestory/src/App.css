@@ -83,3 +83,9 @@ a:link{
 .navLink {
     color: white !important;
 }
+
+.stories {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around
+}
