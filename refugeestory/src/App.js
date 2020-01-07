@@ -9,7 +9,7 @@ import StoriesReview from './components/StoriesReview';
 import Nav from './components/Nav';
 import SubmitStory from './components/SubmitStory';
 import StoryCard from './components/StoryCard';
-import StoryReviewCard from './components/PendingStoryCards';
+import StoryReviewCard from './components/StoriesReviewCards';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 import Stories from "./components/Stories";
