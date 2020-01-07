@@ -10,9 +10,9 @@ import StoryCard from './components/StoryCard';
 import StoryReviewCard from './components/PendingStoryCards';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
+import Stories from "./components/Stories";
 
-
-// function App() {
+export default function App() {
 //   const [stories, setStories] = useState([]);
 //   useEffect(()=>{
 //     axios
@@ -29,10 +29,8 @@ import axios from 'axios';
       <Route path="/submit" component={SubmitStory} />
 
       <HomeCarousel />
-      <StoryReviewCard />
-      <StoryCard />
+      <Stories />
+     
     </div>
   );
-
-
-export default App;
+}
