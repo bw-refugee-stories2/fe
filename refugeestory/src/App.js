@@ -12,13 +12,15 @@ import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 
 
-function App() {
-  const [story, setStory] = useState([]);
-  useEffect(() => {
-    axios.get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
-    .then(res => {setStory(res.data.results)}, console.log(setStory))
-    .catch(err => console.log(err))
-  }, [])
+// function App() {
+//   const [stories, setStories] = useState([]);
+//   useEffect(()=>{
+//     axios
+//         .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
+//         .then(response=>setStories(response.data))
+//         .catch(error=>console.log(error));
+// },[]);
+
   return (
     <div className="App">
       <Nav />
@@ -30,6 +32,6 @@ function App() {
       <StoryCard />
     </div>
   );
-}
+
 
 export default App;
