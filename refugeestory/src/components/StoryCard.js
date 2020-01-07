@@ -15,6 +15,20 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import axios from 'axios';
+
+
+
+function App() {
+  const [stories, setStories] = useState([]);
+  useEffect(()=>{
+    axios
+        .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
+        .then(response=>setStories(response.data))
+        .catch(error=>console.log(error));
+},[]);
+
+
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -39,7 +53,9 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function StoryCard() {
+
+
+export default function StoryCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -61,12 +77,12 @@ export default function StoryCard() {
           </IconButton>
         }
         title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
+        subheader={props.stories.quote}
       />
       <CardMedia
         className={classes.media}
         image="/static/images/cards/paella.jpg"
-        title="Paella dish"
+        title={"Paella dish"}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
