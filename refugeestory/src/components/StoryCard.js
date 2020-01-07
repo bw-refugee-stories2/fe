@@ -15,7 +15,15 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import styled from 'styled-components';
 import axios from 'axios';
+
+const StyledCard = styled.div`
+display:flex;
+flex-direction:column;
+width:30%;
+`
+
 
 
 
@@ -65,7 +73,8 @@ export default function StoryCard(props) {
   };
 
   return (
-    <Card className={classes.card}>
+    <StyledCard>
+    <Card className={classes.card} mainCard>
       <CardHeader
         // avatar={
         //   <Avatar aria-label="recipe" className={classes.avatar}>
@@ -115,5 +124,6 @@ export default function StoryCard(props) {
         </CardContent>
       </Collapse>
     </Card>
+    </StyledCard>
   );
 }
