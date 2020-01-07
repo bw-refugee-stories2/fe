@@ -4,6 +4,7 @@ import {Route} from 'react-router-dom';
 import './App.css';
 import HomeCarousel from './components/Carousel';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 import Nav from './components/Nav';
 import SubmitStory from './components/SubmitStory';
 import StoryCard from './components/StoryCard';
@@ -26,6 +27,7 @@ import axios from 'axios';
       <Nav />
       <Route exact path ="/"/>
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/submit" component={SubmitStory} />
 
       <HomeCarousel />

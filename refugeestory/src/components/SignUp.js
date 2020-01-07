@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import {axiosWithAuth} from "../axiosWithAuth";
 
 const SignUp = (props) => {
 
@@ -7,9 +7,12 @@ const SignUp = (props) => {
 
   const signUp = event => {
       event.preventDefault();
-      axios.post("https://bw-refugee-stories-2.herokuapp.com/api/auth/register")
+      console.log("submitted!")
+      console.log(credentials);
+      axiosWithAuth().post("https://bw-refugee-stories-2.herokuapp.com/api/auth/register", credentials)
       .then(response => {
           console.log(response.data)
+          props.history.push('/');
       })
   }
 
@@ -22,33 +25,35 @@ const SignUp = (props) => {
 
 
   return (
+    <div className="container">
     <div className="box">
-      <h1>Sign up as an admin.</h1>
-      <form onSubmit={signUp} >
-        <input
-            label="name"
-            placeholder="name"
-            name="name"
-            type="text"
-            onChange={handleChange}
-        />
+          <h1>Sign up as an admin.</h1>
+          <form onSubmit={signUp} >
+            <input
+                label="username"
+                placeholder="username"
+                name="username"
+                type="text"
+                onChange={handleChange}
+            />
 
-        <input
-            label="email"
-            placeholder="email"
-            name="email"
-            type="text"
-            onChange={handleChange}
-        />
-        <input
-            label="password"
-            placeholder="password"
-            name="password"
-            type="password"
-            onChange={handleChange}
-        />
-        <button> Sign Up </button>
-        </form>
+            <input
+                label="email"
+                placeholder="email"
+                name="email"
+                type="text"
+                onChange={handleChange}
+            />
+            <input
+                label="password"
+                placeholder="password"
+                name="password"
+                type="password"
+                onChange={handleChange}
+            />
+            <button> Sign Up </button>
+            </form>
+        </div>
     </div>
   );
 };
