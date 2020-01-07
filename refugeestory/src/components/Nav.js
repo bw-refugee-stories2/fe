@@ -17,7 +17,7 @@ const NavBar = () => {
         <NavLink className="navLink" href = "/login">Admin Login</NavLink>
         <NavLink className="navLink" href = "/signup">Admin Sign Up</NavLink>
         <NavLink className="navLink" href = "/storiesreview">Stories to Review</NavLink>
-        <NavLink className="navLink" href = "/submitstory">Submit Your Story</NavLink>
+        <NavLink className="navLink" href = "/submit">Submit Your Story</NavLink>
       </Navbar>
   );
 };
