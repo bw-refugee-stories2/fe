@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../axiosWithAuth";
-import SignUp from "./SignUp";
 
 const Login = (props) => {
   // make a post request to retrieve a token from the api
@@ -28,8 +27,6 @@ const Login = (props) => {
 
   return (
     <div className="container">
-    {console.log(props.history)}
-        <SignUp />
         <div className="box">
           <h1> Login to continue</h1>
           <form onSubmit={login} >
