@@ -14,8 +14,8 @@ function App() {
     <div className="App">
       <Nav />
       <Route exact path ="/"/>
-      <Route path="/login"><Login/></Route>
-      <Route path="/Submit"><SubmitStory/></Route>
+      <Route path="/login" component={Login} />
+      <Route path="/submit" component={SubmitStory} />
       <HomeCarousel />
     </div>
   );
