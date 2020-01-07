@@ -13,7 +13,7 @@ const Login = (props) => {
       .then(response => {
           console.log(response.data)
           localStorage.setItem('token', response.data.payload);
-          props.history.push('/bubblepage');
+          props.history.push('/');
       })
   }
 
