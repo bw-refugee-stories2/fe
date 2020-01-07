@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { axiosWithAuth } from "../axiosWithAuth";
+import SignUp from "./SignUp";
 
 const Login = (props) => {
   // make a post request to retrieve a token from the api
@@ -26,26 +27,28 @@ const Login = (props) => {
 
 
   return (
-    <div className="login">
-      <h1>Refugee Stories App</h1>
-      <h6> Please login to continue</h6>
-      <form onSubmit={login} >
-        <input
-            label="username"
-            placeholder="username"
-            name="username"
-            type="text"
-            onChange={handleChange}
-        />
-        <input
-            label="password"
-            placeholder="password"
-            name="password"
-            type="password"
-            onChange={handleChange}
-        />
-        <button> Login </button>
-        </form>
+    <div className="container">
+        <SignUp />
+        <div className="box">
+          <h1> Login to continue</h1>
+          <form onSubmit={login} >
+            <input
+                label="email"
+                placeholder="email"
+                name="email"
+                type="text"
+                onChange={handleChange}
+            />
+            <input
+                label="password"
+                placeholder="password"
+                name="password"
+                type="password"
+                onChange={handleChange}
+            />
+            <button> Login </button>
+            </form>
+        </div>
     </div>
   );
 };
