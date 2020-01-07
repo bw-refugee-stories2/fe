@@ -13,6 +13,13 @@ const Nav= () => {
           <Link to = "/login">Admin Login</Link>
         </div>
         <div>
+          <Link to = "/signup">Admin Sign Up</Link>
+        </div>
+        <div>
+          <Link to = "/storiesreview">Stories to Review</Link>
+        </div>
+
+        <div>
           <Link to = "/submitstory">Submit Your Story</Link>
         </div>
       </div>

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import {Route} from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
 import HomeCarousel from './components/Carousel';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
+import StoriesReview from './components/StoriesReview';
 import Nav from './components/Nav';
 import SubmitStory from './components/SubmitStory';
 import StoryCard from './components/StoryCard';
@@ -13,6 +15,22 @@ import axios from 'axios';
 import Stories from "./components/Stories";
 
 export default function App() {
+
+const PrivateRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      localStorage.getItem("token") ? (
+        <Component {...props} />
+      ) : (
+        <Redirect to="/login" />
+      )
+    }
+  />
+);
+
+
+// function App() {
 //   const [stories, setStories] = useState([]);
 //   useEffect(()=>{
 //     axios
@@ -26,7 +44,9 @@ export default function App() {
       <Nav />
       <Route exact path ="/"/>
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={SignUp} />
       <Route path="/submit" component={SubmitStory} />
+      <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
 
       <HomeCarousel />
       <Stories />
