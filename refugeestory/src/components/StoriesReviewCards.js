@@ -23,10 +23,10 @@ import {axiosWithAuth} from '../axiosWithAuth';
 
 
 
-
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: "100%",
+    marginTop: 20,
   },
   media: {
     height: 0,
@@ -49,8 +49,19 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function StoryCard(props) {
-  console.log(props)
+export default function StoriesReviewCards(props) {
+
+    const approvedStory = {
+    id: props.singleStory.id,
+    name: props.singleStory.name,
+    image_URL: props.singleStory.image_URL,
+    quote: props.singleStory.quote,
+    content: props.singleStory.content,
+    author: props.singleStory.author,
+    approved: true
+}
+
+
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -59,12 +70,20 @@ export default function StoryCard(props) {
   };
 
 
-  console.log(props.singleStory);
 
-  const handleAcceptClick = () => {
-      axiosWithAuth().put(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`,{
-          approved: true
+  const handleAcceptClick = e => {
+      e.preventDefault();
+      axiosWithAuth().put(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`, approvedStory)
+      .then(response => {
+          console.log(response.data);
+      }).catch(err => {
+          console.log(err);
       })
+  }
+
+  const handleDeleteClick = e => {
+      e.preventDefault();
+      axiosWithAuth().delete(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`)
       .then(response => {
           console.log(response);
       })
@@ -101,7 +120,7 @@ export default function StoryCard(props) {
             <ThumbUpIcon onClick={handleAcceptClick} />
         </IconButton>
         <IconButton>
-            <DeleteIcon />
+            <DeleteIcon onClick={handleDeleteClick} />
         </IconButton>
         <IconButton
           className={clsx(classes.expand, {
