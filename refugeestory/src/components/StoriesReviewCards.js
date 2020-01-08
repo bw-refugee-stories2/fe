@@ -91,11 +91,11 @@ export default function StoriesReviewCards(props) {
   return (
     <Card className={classes.card}>
       <CardHeader
-        avatar={
-          <Avatar aria-label="recipe" className={classes.avatar}>
-            R
-          </Avatar>
-        }
+        // avatar={
+        //   <Avatar aria-label="recipe" className={classes.avatar}>
+        //     R
+        //   </Avatar>
+        // }
         // action={
         //   <IconButton aria-label="settings">
         //     <MoreVertIcon />

@@ -108,3 +108,14 @@ a:hover{
     flex-flow: row wrap;
     justify-content: space-evenly;
 }
+
+.MuiTypography-body2 {
+  color: black !important;
+  font-size: 1rem !important;
+}
+
+.makeStyles-card-1 {
+  margin: auto !important;
+  margin-top: 5% !important;
+  width: 50%;
+} 
