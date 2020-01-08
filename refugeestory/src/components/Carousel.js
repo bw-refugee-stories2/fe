@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {StoriesContext} from "../contexts/StoriesContext";
+import {Link} from "react-router-dom";
 import {
   Carousel,
   CarouselItem,
@@ -35,16 +35,14 @@ const items = [
 */
 
 const HomeCarousel = (props) => {
-    const myData = useContext(StoriesContext)
-    console.log(myData);
 
 
-    const myItems = myData.slice(3,6);
+    const myItems = props.myData.slice(props.myData.length - 3,props.myData.length);
     console.log(myItems);
 
     const items = [];
     myItems.forEach(item => {
-        items.push({src: item.image_URL, title: item.name, caption: item.quote})
+        items.push({id: item.id, src: item.image_URL, title: item.name, caption: item.quote})
     })
 
 
@@ -76,7 +74,13 @@ const HomeCarousel = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} />
-        <CarouselCaption captionText={item.caption} captionHeader={item.title} />
+        <Link to={{
+            pathname: `/stories/${item.id}`,
+            state: {singleStory: myItems.filter(element => (
+                element.id === item.id
+            ))
+            }
+        }}><CarouselCaption captionText={item.caption} captionHeader={item.title} /></Link>
       </CarouselItem>
     );
   });

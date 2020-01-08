@@ -65,8 +65,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function StoryCard(props) {
-  console.log(props)
+const StoryCard = (props) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -88,16 +87,16 @@ export default function StoryCard(props) {
         //     <MoreVertIcon />
         //   </IconButton>
         // }
-        title= {props.props.name}
+        title= {props.singleStory.name}
         />
       <CardMedia
         className={classes.media}
-        image={props.props.image_URL}
+        image={props.singleStory.image_URL}
         title={"Paella dish"}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-         {props.props.quote}
+         {props.singleStory.quote}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -121,7 +120,7 @@ export default function StoryCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            {props.props.content}
+            {props.singleStory.content}
           </Typography>
         </CardContent>
       </Collapse>
@@ -129,3 +128,5 @@ export default function StoryCard(props) {
 
   );
 }
+
+export default StoryCard;
