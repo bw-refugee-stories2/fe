@@ -122,7 +122,3 @@ a:hover{
     flex-flow: row wrap;
     justify-content: space-around
 }
-
-textarea {
-  text-decoration: none;
-}
