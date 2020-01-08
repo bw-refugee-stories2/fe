@@ -15,7 +15,8 @@ export default function Stories(props) {
 
     <section className="stories">
       {props.myData.map(story => {
-        return <StoryCard singleStory={story} key={props.id} />;
+        return <StoryCard singleStory={story} size={"30%"} key={props.id} />;
+
       })}
     </section>
   );
