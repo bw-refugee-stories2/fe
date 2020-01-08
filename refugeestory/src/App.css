@@ -45,7 +45,7 @@
 }
 
 .bg-dark {
-  background-color: #659ebc !important;
+  background-color: #05396b !important;
   justify-content: space-evenly;
 }
 
@@ -91,9 +91,10 @@ a{
   
 }
 a:hover{
-  color: #659ebc !important;
+  color: #05396b !important;
   background-color: white;
   text-decoration: none !important;
+  font-weight: bold;
 }
 
 .navbar-dark .navbar-nav .nav-link {
