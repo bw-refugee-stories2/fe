@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
 import {Link} from "react-router-dom";
-import {StoriesContext} from "../contexts/StoriesContext";
 import {
   Carousel,
   CarouselItem,
@@ -36,11 +35,9 @@ const items = [
 */
 
 const HomeCarousel = (props) => {
-    const myData = useContext(StoriesContext)
-    console.log(myData);
 
 
-    const myItems = myData.slice(myData.length - 3,myData.length);
+    const myItems = props.myData.slice(props.myData.length - 3,props.myData.length);
     console.log(myItems);
 
     const items = [];

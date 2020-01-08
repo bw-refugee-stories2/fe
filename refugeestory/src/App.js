@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Route, Redirect} from 'react-router-dom';
 // import logo from './logo.svg';
 import './App.css';
-import HomeCarousel from './components/Carousel';
+import Home from './components/Home';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import StoriesReview from './components/StoriesReview';
@@ -13,7 +13,6 @@ import StoryReviewCard from './components/StoriesReviewCards';
 import SingleStory from './components/SingleStory';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
-import Stories from "./components/Stories";
 import {StoriesContext} from './contexts/StoriesContext';
 
 
@@ -42,27 +41,16 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
    }, [])
 
 
-// function App() {
-//   const [stories, setStories] = useState([]);
-//   useEffect(()=>{
-//     axios
-//         .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
-//         .then(response=>setStories(response.data))
-//         .catch(error=>console.log(error));
-// },[]);
-
   return (
     <StoriesContext.Provider value={data}>
       <div className="App">
         <NavBar />
-        <Route exact path ="/"/>
+        <Route exact path ="/" component={Home}/>
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/submit" component={SubmitStory} />
         <Route path="/stories/:id" component={SingleStory} />
         <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
-        <HomeCarousel />
-        <Stories />
 
       </div>
     </StoriesContext.Provider>
