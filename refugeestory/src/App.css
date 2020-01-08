@@ -99,7 +99,7 @@ a:hover{
 .carousel-item img{
 
   width: 70%;
-  margin-left: 15%;
+  
   /* height: 80vh; */
 
 }
@@ -115,8 +115,8 @@ a:hover{
   font-size: 1rem !important;
 }
 
-.makeStyles-card-1 {
+.MuiCard-root {
   margin: auto !important;
   margin-top: 5% !important;
-  width: 50%;
+  width: 40% !important;
 } 

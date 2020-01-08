@@ -14,7 +14,7 @@ export default function SingleStory(props) {
   return (
 
     <section className="stories">
-        <StoryCard singleStory ={props.location.state.singleStory[0]} size={"90%"}/>;
+        <StoryCard singleStory ={props.location.state.singleStory[0]} size={"90%"}/>
     </section>
   );
 }
