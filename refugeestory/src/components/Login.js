@@ -12,7 +12,7 @@ const Login = (props) => {
       axiosWithAuth().post("https://bw-refugee-stories-2.herokuapp.com/api/auth/login", credentials)
       .then(response => {
           console.log(response.data)
-          localStorage.setItem('token', response.data.payload);
+          localStorage.setItem('token', response.data.token);
           props.history.push('/');
       })
   }
