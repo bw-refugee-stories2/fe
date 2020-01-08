@@ -10,22 +10,22 @@ import {
 
 const items = [
   {
-    src: 'https://images.unsplash.com/photo-1526817575615-3685e135615d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1288&q=80',
+    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/01-Alia-Gruppo-Aleimar.jpg',
     altText: 'Refugees on a Beach',
-    title: 'Global Warming Creates Rising Tides',
-    caption: 'A story of a father and his children looking for a new home due to global warming'
+    title: 'Alia',
+    caption: 'Alia fled her home in Aleppo, Syria and is currently living in Damour, Lebanon. Alia is 7 years old.'
   },
   {
-    src: 'https://images.unsplash.com/photo-1505155485412-30b3a45080ec?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1359&q=80',
+    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/05-Achan-Hope-Ofiriha.jpg',
     altText: 'Slide 2',
-    title: 'Brother and Sisters Separated From their Parents',
-    caption: 'When war forced these siblins to flee their home little did they know this would begin a search for their family.'
+    title: 'Achan',
+    caption: 'Achan fled her home in Pajok, South Sudan and is currently living in a refugee camp in Lamwo District, Uganda.'
   },
   {
-    src: 'https://images.unsplash.com/photo-1530490125459-847a6d437825?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1363&q=80',
+    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/04-Sabri-Emfasis-remember-to-add-credit-back-in-since-i-cropped-it-out-of-photo.jpg',
     altText: 'Slide 3',
-    title: 'New Hope is Found!',
-    caption: 'A mother and her daughter start a new life with new promise!'
+    title: 'Sabri',
+    caption: 'Sabri fled his home in Aleppo, Syria and is currently living in Paiania, Greece. Sabri is 16 years old.'
   }
 ];
 

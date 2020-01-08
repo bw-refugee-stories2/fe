@@ -40,8 +40,9 @@ import styled from 'styled-components';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: 345,
+    maxWidth: "90%",
     marginTop: 20,
+    width: 1200,
   },
   media: {
     height: 0,
