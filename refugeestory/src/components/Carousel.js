@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import {StoriesContext} from "../contexts/StoriesContext";
 import {
   Carousel,
   CarouselItem,
@@ -8,6 +9,9 @@ import {
 } from 'reactstrap';
 
 
+
+/*
+ * DUMMY DATA
 const items = [
   {
     src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/01-Alia-Gruppo-Aleimar.jpg',
@@ -28,8 +32,22 @@ const items = [
     caption: 'Sabri fled his home in Aleppo, Syria and is currently living in Paiania, Greece. Sabri is 16 years old.'
   }
 ];
+*/
 
 const HomeCarousel = (props) => {
+    const myData = useContext(StoriesContext)
+    console.log(myData);
+
+
+    const myItems = myData.slice(3,6);
+    console.log(myItems);
+
+    const items = [];
+    myItems.forEach(item => {
+        items.push({src: item.image_URL, title: item.name, caption: item.quote})
+    })
+
+
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 

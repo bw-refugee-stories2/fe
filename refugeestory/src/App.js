@@ -59,7 +59,6 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Route path="/signup" component={SignUp} />
         <Route path="/submit" component={SubmitStory} />
         <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
-
         <HomeCarousel />
         <Stories />
 
