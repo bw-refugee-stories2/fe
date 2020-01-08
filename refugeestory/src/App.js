@@ -30,7 +30,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
     }
   />
 );
-    const [data, setData] =useState([]);
+  const [data, setData] =useState([]);
    useEffect(() => {
     axios.get("https://bw-refugee-stories-2.herokuapp.com/api/stories")
     .then(response => {
@@ -51,19 +51,19 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 // },[]);
 
   return (
-      <StoriesContext.Provider value={data}>
-    <div className="App">
-      <NavBar />
-      <Route exact path ="/"/>
-      <Route path="/login" component={Login} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/submit" component={SubmitStory} />
-      <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
+    <StoriesContext.Provider value={data}>
+      <div className="App">
+        <NavBar />
+        <Route exact path ="/"/>
+        <Route path="/login" component={Login} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/submit" component={SubmitStory} />
+        <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
 
-      <HomeCarousel />
-      <Stories />
+        <HomeCarousel />
+        <Stories />
 
-    </div>
+      </div>
     </StoriesContext.Provider>
   );
 }
