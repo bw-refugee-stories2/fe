@@ -8,11 +8,12 @@ import {
   NavLink,
   NavbarText
 } from 'reactstrap';
+import "../App.css"
 
 const NavBar = () => {
   return (
       <Navbar color="dark" dark expand="md">
-        <NavbarBrand href="/">Refugee Stories</NavbarBrand>
+        <div class="logo">Refugee Stories</div>
         <NavLink  href="/">Home</NavLink>
         <NavLink  href = "/login">Admin Login</NavLink>
         <NavLink  href = "/signup">Admin Sign Up</NavLink>

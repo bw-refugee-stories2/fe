@@ -44,6 +44,11 @@
     justify-content: space-between;
 }
 
+.bg-dark {
+  background-color: #659ebc !important;
+  justify-content: space-evenly;
+}
+
 .container .box {
 
     border-radius: 25px;
@@ -68,11 +73,26 @@
     margin-bottom: 5%;
 
 }
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  margin-right: 2%;
+}
 nav .navbar-nav li a{
   color: white !important;
   }
-a:link{
+a{
   color: #fff !important;
+  text-decoration: none !important;
+  font-family: 'Roboto', sans-serif;
+  
+}
+a:hover{
+  color: #659ebc !important;
+  background-color: white;
   text-decoration: none !important;
 }
 
