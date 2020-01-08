@@ -40,9 +40,8 @@ import styled from 'styled-components';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: "90%",
+    maxWidth: "30%",
     marginTop: 20,
-    width: 1200,
   },
   media: {
     height: 0,
@@ -75,7 +74,7 @@ export default function StoryCard(props) {
   };
 
   return (
-    
+
     <Card className={classes.card} mainCard>
       <CardHeader
         // avatar={
@@ -126,6 +125,6 @@ export default function StoryCard(props) {
         </CardContent>
       </Collapse>
     </Card>
-    
+
   );
 }
