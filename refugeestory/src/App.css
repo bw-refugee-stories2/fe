@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -104,6 +105,17 @@ a:hover{
 .navLink {
     color: white !important;
 }
+
+.carousel-caption {
+  font-size: 1.3rem;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  width: 5%;
+
+}
+
+
 
 .stories {
     display: flex;
