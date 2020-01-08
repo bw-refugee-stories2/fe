@@ -89,3 +89,7 @@ a:link{
     flex-flow: row wrap;
     justify-content: space-around
 }
+
+textarea {
+  text-decoration: none;
+}
