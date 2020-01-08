@@ -53,11 +53,11 @@ const SubmitStory = (props) => {
                 onChange={handleChange}
             />
             <h6> Story: </h6>
-            <textarea
-                type= "text"
+            <input
                 label="content"
                 placeholder="story"
                 name="content"
+                type="text"
                 onChange={handleChange}
             />
 

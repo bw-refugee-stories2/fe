@@ -40,7 +40,7 @@ import styled from 'styled-components';
 
 const useStyles = makeStyles(theme => ({
   card: {
-    maxWidth: "90%",
+
     marginTop: 20,
     width: 1000,
   },
