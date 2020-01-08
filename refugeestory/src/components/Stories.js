@@ -19,7 +19,7 @@ export default function Stories(props) {
 
       })}
     </section>
-  );
+  )
 }
 
 
