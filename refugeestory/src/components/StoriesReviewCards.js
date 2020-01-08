@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -15,20 +16,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ThumbUpIcon from '@material-ui/icons/ThumbUp';
 import styled from 'styled-components';
-import axios from 'axios';
+import {axiosWithAuth} from '../axiosWithAuth';
 
-
-
-
-// function App() {
-//   const [stories, setStories] = useState([]);
-//   useEffect(()=>{
-//     axios
-//         .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
-//         .then(response=>setStories(response.data))
-//         .catch(error=>console.log(error));
-// },[]);
 
 
 
@@ -66,6 +58,19 @@ export default function StoryCard(props) {
     setExpanded(!expanded);
   };
 
+
+  console.log(props.singleStory);
+
+  const handleAcceptClick = () => {
+      axiosWithAuth().put(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`,{
+          approved: true
+      })
+      .then(response => {
+          console.log(response);
+      })
+  }
+
+
   return (
     <Card className={classes.card}>
       <CardHeader
@@ -79,25 +84,25 @@ export default function StoryCard(props) {
         //     <MoreVertIcon />
         //   </IconButton>
         // }
-        title= {props.props.name}
+        title= {props.singleStory.name}
         />
       <CardMedia
         className={classes.media}
-        image={props.props.image_URL}
+        image={props.singleStory.image_URL}
         title={"Paella dish"}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-         {props.props.quote}
+         {props.singleStory.quote}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+        <IconButton>
+            <ThumbUpIcon onClick={handleAcceptClick} />
         </IconButton>
-        {/* <IconButton aria-label="share">
-          <ShareIcon />
-        </IconButton> */}
+        <IconButton>
+            <DeleteIcon />
+        </IconButton>
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
@@ -112,7 +117,7 @@ export default function StoryCard(props) {
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>
-            {props.props.content}
+            {props.singleStory.content}
           </Typography>
         </CardContent>
       </Collapse>
