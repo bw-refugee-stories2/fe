@@ -13,7 +13,7 @@ const StoriesReview = (props) => {
         <div className="box">
           <h1> Stories to Review</h1>
           {myData.map(story => {
-            return <StoriesReviewCards props={story} />
+            return <StoriesReviewCards singleStory={story} />
           })}
            </div>
     </section>
