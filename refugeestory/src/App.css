@@ -107,15 +107,31 @@ a:hover{
 }
 
 .carousel-caption {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
+  background-color:  #05396b;
+  color: white;
+  
 }
 
 .carousel-control-next, .carousel-control-prev {
-  width: 5%;
+  width: 15%;
+  background-color: #edf5e0;
 
 }
 
+.carousel-control-next-icon, .carousel-control-prev-icon {
+  background-color: #05396b;
+  padding: 10px;
+  border-radius: 50%;
 
+}
+
+.carousel-item img{
+
+  width: 70%
+  /* height: 80vh; */
+
+}
 
 .stories {
     display: flex;
