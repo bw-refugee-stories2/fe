@@ -10,6 +10,7 @@ import NavBar from './components/Nav';
 import SubmitStory from './components/SubmitStory';
 import StoryCard from './components/StoryCard';
 import StoryReviewCard from './components/StoriesReviewCards';
+import SingleStory from './components/SingleStory';
 import { axiosWithAuth } from './axiosWithAuth';
 import axios from 'axios';
 import Stories from "./components/Stories";
@@ -58,6 +59,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Route path="/login" component={Login} />
         <Route path="/signup" component={SignUp} />
         <Route path="/submit" component={SubmitStory} />
+        <Route path="/stories/:id" component={SingleStory} />
         <PrivateRoute exact path="/storiesreview" component={StoriesReview} />
         <HomeCarousel />
         <Stories />
