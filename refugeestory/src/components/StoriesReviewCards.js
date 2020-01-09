@@ -74,6 +74,7 @@ export default function StoriesReviewCards(props) {
   const handleAcceptClick = e => {
       axiosWithAuth().put(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`, approvedStory)
       .then(response => {
+          window.location.reload();
           console.log(response.data);
       }).catch(err => {
           console.log(err);
@@ -83,8 +84,10 @@ export default function StoriesReviewCards(props) {
   const handleDeleteClick = e => {
       axiosWithAuth().delete(`https://bw-refugee-stories-2.herokuapp.com/api/stories/${props.singleStory.id}`)
       .then(response => {
+          window.location.reload();
           console.log(response);
       })
+
   }
 
 
