@@ -1,13 +1,10 @@
-import React, {useState, useContext, useEffect} from "react";
+import React from "react";
+// Components
 import StoryCard from "./StoryCard";
-import {StoriesContext} from "../contexts/StoriesContext";
-import styled from "styled-components";
-import axios from "axios";
-
 
 export default function Stories(props) {
 
-        const myData = useContext(StoriesContext).filter(element => (
+        const myData = props.myData.filter(element => (
         element.approved === true
     ));
 
@@ -22,7 +19,7 @@ export default function Stories(props) {
 
     <section className="stories">
       {myData.map(story => {
-        return <StoryCard singleStory={story} size={"30%"} key={props.id} />;
+        return <StoryCard singleStory={story} size={"30%"} key={story.id} />;
 
       })}
     </section>

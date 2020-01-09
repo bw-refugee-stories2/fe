@@ -1,21 +1,42 @@
-import React, {useContext} from 'react';
-import HomeCarousel from './Carousel';
-import Stories from './Stories';
-import {StoriesContext} from "../contexts/StoriesContext";
-
+import React, { useEffect } from "react";
+// Components
+import HomeCarousel from "./Carousel";
+import Stories from "./Stories";
+//Utils
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+// Actions
+import { setName, fetchStories } from "../actions/actions";
 
 const Home = props => {
-    const myData = useContext(StoriesContext)
+  const data = props.stories;
+  const fetching = false;
 
+  useEffect(() => {
+    props.fetchStories();
+  }, [fetching]);
 
+  return (
+    <div>
+      <HomeCarousel myData={data} />
+      <Stories myData={data} />
+    </div>
+  );
+};
 
-    return (
-        <div>
-            <HomeCarousel myData={myData} />
-            <Stories myData={myData} />
-        </div>
+const mapStateToProps = state => {
+  return {
+    name: state.name,
+    fetchingStories: state.fetchingStories,
+    stories: state.stories,
+    fetchingStoriesError: state.fetchingStoriesError,
+    fetchedData: state.fetchedData
+  };
+};
 
-    )
-}
-
-export default Home;
+export default withRouter(
+  connect(mapStateToProps, {
+    setName,
+    fetchStories
+  })(Home)
+);

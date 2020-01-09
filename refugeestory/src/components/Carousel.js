@@ -1,72 +1,55 @@
-import React, { useState, useContext } from 'react';
-import {Link} from "react-router-dom";
+import React from "react";
+// Components
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
   CarouselCaption
-} from 'reactstrap';
+} from "reactstrap";
+//Utils
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+// Actions
+import { setIndex, setAnimating } from "../actions/actions";
 
+const HomeCarousel = props => {
+  const data = props.myData;
+  const index = props.index;
+  const animating = props.animating;
 
+  const setIndex = props.setIndex;
+  const setAnimating = props.setAnimating;
 
-/*
- * DUMMY DATA
-const items = [
-  {
-    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/01-Alia-Gruppo-Aleimar.jpg',
-    altText: 'Refugees on a Beach',
-    title: 'Alia',
-    caption: 'Alia fled her home in Aleppo, Syria and is currently living in Damour, Lebanon. Alia is 7 years old.'
-  },
-  {
-    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/05-Achan-Hope-Ofiriha.jpg',
-    altText: 'Slide 2',
-    title: 'Achan',
-    caption: 'Achan fled her home in Pajok, South Sudan and is currently living in a refugee camp in Lamwo District, Uganda.'
-  },
-  {
-    src: 'https://www.globalgiving.org/learn/wp-content/uploads/2017/06/04-Sabri-Emfasis-remember-to-add-credit-back-in-since-i-cropped-it-out-of-photo.jpg',
-    altText: 'Slide 3',
-    title: 'Sabri',
-    caption: 'Sabri fled his home in Aleppo, Syria and is currently living in Paiania, Greece. Sabri is 16 years old.'
-  }
-];
-*/
+  const myItems = !data
+    ? []
+    : !data.length <= 3
+    ? data.slice(0, 3)
+    : data.slice(0, data.length);
 
-const HomeCarousel = (props) => {
+  const items = myItems.map(item => ({
+    id: item.id,
+    src: item.image_URL,
+    title: item.name,
+    caption: item.quote
+  }));
 
-
-    const myItems = props.myData.slice(props.myData.length - 3,props.myData.length);
-    console.log(myItems);
-
-    const items = [];
-    myItems.forEach(item => {
-        items.push({id: item.id, src: item.image_URL, title: item.name, caption: item.quote})
-    })
-
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
-  const next = () => {
+  const toggle = direction => {
     if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  }
+    if (direction === "next") {
+      setIndex(index === items.length - 1 ? 0 : index + 1);
+    }
+    if (direction === "previous") {
+      setIndex(index === 0 ? items.length - 1 : index - 1);
+    }
+  };
 
-  const previous = () => {
+  const goToIndex = newIndex => {
     if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  }
+    setIndex(newIndex);
+  };
 
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
-
-  const slides = items.map((item) => {
+  const slides = items.map(item => {
     return (
       <CarouselItem
         onExiting={() => setAnimating(true)}
@@ -74,29 +57,57 @@ const HomeCarousel = (props) => {
         key={item.src}
       >
         <img src={item.src} alt={item.altText} />
-        <Link to={{
+        <Link
+          to={{
             pathname: `/stories/${item.id}`,
-            state: {singleStory: myItems.filter(element => (
-                element.id === item.id
-            ))
+            state: {
+              singleStory: myItems.filter(element => element.id === item.id)
             }
-        }}><CarouselCaption captionText={item.caption} captionHeader={item.title} /></Link>
+          }}
+        >
+          <CarouselCaption
+            captionText={item.caption}
+            captionHeader={item.title}
+          />
+        </Link>
       </CarouselItem>
     );
   });
 
   return (
     <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
+      activeIndex={index}
+      next={e => toggle("next")}
+      previous={e => toggle("previous")}
     >
-      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+      <CarouselIndicators
+        items={items}
+        activeIndex={index}
+        onClickHandler={goToIndex}
+      />
       {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+      <CarouselControl
+        direction="prev"
+        directionText="Previous"
+        onClickHandler={e => toggle("previous")}
+      />
+      <CarouselControl
+        direction="next"
+        directionText="Next"
+        onClickHandler={e => toggle("next")}
+      />
     </Carousel>
   );
-}
+};
 
-export default HomeCarousel;
+const mapStateToProps = state => {
+  return {
+    index: state.index,
+    animating: state.animating
+  };
+};
+
+export default connect(mapStateToProps, {
+  setIndex,
+  setAnimating
+})(HomeCarousel);

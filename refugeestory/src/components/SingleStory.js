@@ -1,7 +1,7 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, { useContext } from "react";
+// Components
 import StoryCard from "./StoryCard";
-import styled from "styled-components";
-import axios from "axios";
+// .Context.
 import {StoriesContext} from "../contexts/StoriesContext";
 
 

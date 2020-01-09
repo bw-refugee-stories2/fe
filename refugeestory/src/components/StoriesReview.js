@@ -1,9 +1,14 @@
-import React, { useState, useContext, useEffect } from "react";
-import { axiosWithAuth } from "../axiosWithAuth";
+import React from "react";
+//Utils
+import { connect } from "react-redux";
+// Actions
+import {
+  fetchStories
+} from "../actions/actions";
+
 import StoriesReviewCards from "./StoriesReviewCards";
-import {StoriesContext} from "../contexts/StoriesContext";
 const StoriesReview = (props) => {
-    const myData = useContext(StoriesContext).filter(element => (
+    const myData = props.stories.filter(element => (
         element.approved === false
     ));
 
@@ -20,5 +25,14 @@ const StoriesReview = (props) => {
   );
 };
 
-export default StoriesReview;
+const mapStateToProps = state => {
+  return {
+    stories: state.stories,
+  };
+};
+
+export default connect(mapStateToProps, { 
+  fetchStories 
+})(StoriesReview);
+
 
