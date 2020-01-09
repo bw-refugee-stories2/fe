@@ -1,10 +1,17 @@
 import React, {useState, useContext, useEffect} from "react";
 import StoryCard from "./StoryCard";
+import {StoriesContext} from "../contexts/StoriesContext";
 import styled from "styled-components";
 import axios from "axios";
 
 
 export default function Stories(props) {
+
+        const myData = useContext(StoriesContext).filter(element => (
+        element.approved === true
+    ));
+
+
     /*
     DUMMY DATA:
     const Data =[{"id":1,"name":"Alia","image_URL":"https://www.globalgiving.org/learn/wp-content/uploads/2017/06/01-Alia-Gruppo-Aleimar.jpg","quote":"Alia fled her home in Aleppo, Syria and is currently living in Damour, Lebanon. Alia is 7 years old.","content":"The last thing I remember of Syria, before we left, was when my mother was taking me from our place to our grandparents. The roads were full of dead corpses. I saw dead people with no heads or no hands or legs. I was so shocked I couldn’t stop crying. To calm me down, my grandfather told me they were mean people, but I still prayed for them, because even if some considered them mean, they were still dead human beings. Back at home, I left a friend in Syria, her name was Rou’a. I miss her a lot and I miss going to school with her. I used to play with her with my Atari but I couldn’t bring it with me. I also used to have pigeons, one of them had eggs, I would feed them and care for them. I’m worried about them, I really pray someone is still caring for them. But here I have a small kitten that I really love! I miss my home a lot. I hope one day we’ll be back and things will be just like before.","author":"Miranda Cleland at globalgiving.org","approved":true},
@@ -14,7 +21,7 @@ export default function Stories(props) {
   return (
 
     <section className="stories">
-      {props.myData.map(story => {
+      {myData.map(story => {
         return <StoryCard singleStory={story} size={"30%"} key={props.id} />;
 
       })}
