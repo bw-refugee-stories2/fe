@@ -21,14 +21,3 @@ export default function Stories(props) {
     </section>
   )
 }
-
-
-// Data.map(story=>{
-//     return
-// })
-// return (
-//     <section className="character-list grid-view">
-//       {character.map(char => {
-//         return <CharacterCard key={char.id} char={char} />;
-//       })}
-//     </section>
