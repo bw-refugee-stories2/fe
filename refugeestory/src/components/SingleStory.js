@@ -19,13 +19,3 @@ export default function SingleStory(props) {
   );
 }
 
-
-// Data.map(story=>{
-//     return
-// })
-// return (
-//     <section className="character-list grid-view">
-//       {character.map(char => {
-//         return <CharacterCard key={char.id} char={char} />;
-//       })}
-//     </section>

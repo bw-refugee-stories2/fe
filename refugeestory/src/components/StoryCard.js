@@ -16,25 +16,6 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import axios from 'axios';
 import styled from 'styled-components';
-// const StyledCard = styled.div`
-// display:flex;
-// flex-direction:column;
-// width:30%;
-// `
-
-
-
-
-// function App() {
-//   const [stories, setStories] = useState([]);
-//   useEffect(()=>{
-//     axios
-//         .get('https://bw-refugee-stories-2.herokuapp.com/api/stories')
-//         .then(response=>setStories(response.data))
-//         .catch(error=>console.log(error));
-// },[]);
-
-
 
 
 const StoryCard = (props) => {
@@ -76,16 +57,6 @@ const useStyles = makeStyles(theme => ({
 
     <Card className={classes.card} mainCard>
       <CardHeader
-        // avatar={
-        //   <Avatar aria-label="recipe" className={classes.avatar}>
-        //     R
-        //   </Avatar>
-        // }
-        // action={
-        //   <IconButton aria-label="settings">
-        //     <MoreVertIcon />
-        //   </IconButton>
-        // }
         title= {props.singleStory.name}
         />
       <CardMedia
