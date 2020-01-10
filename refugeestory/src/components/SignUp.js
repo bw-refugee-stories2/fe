@@ -9,7 +9,7 @@ const SignUp = (props) => {
       event.preventDefault();
       console.log("submitted!")
       console.log(credentials);
-      axiosWithAuth().post("https://bw-refugee-stories-2.herokuapp.com/api/auth/register", credentials)
+      axiosWithAuth().post("https://refugee-stories2.herokuapp.com/api/auth/register", credentials)
       .then(response => {
           console.log(response.data)
           props.history.push('/');

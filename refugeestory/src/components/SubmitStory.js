@@ -7,7 +7,7 @@ const SubmitStory = (props) => {
   const submitStory = event => {
       event.preventDefault();
       console.log(story);
-      axios.post("https://bw-refugee-stories-2.herokuapp.com/api/stories", story)
+      axios.post("https://refugee-stories2.herokuapp.com/api/stories", story)
       .then(response => {
           console.log(response.data)
           props.history.push('/');
