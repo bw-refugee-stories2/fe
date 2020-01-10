@@ -32,7 +32,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
   const [data, setData] =useState([]);
    useEffect(() => {
-    axios.get("https://bw-refugee-stories-2.herokuapp.com/api/stories")
+    axios.get("https://refugee-stories2.herokuapp.com/api/stories")
     .then(response => {
         setData(response.data)
         console.log(data);

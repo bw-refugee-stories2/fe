@@ -9,7 +9,7 @@ const Login = (props) => {
 
   const login = event => {
       event.preventDefault();
-      axiosWithAuth().post("https://bw-refugee-stories-2.herokuapp.com/api/auth/login", credentials)
+      axiosWithAuth().post("https://refugee-stories2.herokuapp.com/api/auth/login", credentials)
       .then(response => {
           console.log(response.data)
           localStorage.setItem('token', response.data.token);
