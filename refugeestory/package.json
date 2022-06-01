@@ -19,7 +19,7 @@
     "react-scripts": "3.3.0",
     "react-strap": "^0.0.1",
     "reactstrap": "^8.2.0",
-    "sharp": "^0.23.4",
+    "sharp": "^0.30.5",
     "yup": "^0.28.0"
   },
   "scripts": {
